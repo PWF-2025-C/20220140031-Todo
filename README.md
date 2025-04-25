@@ -53,6 +53,18 @@
 
 ![image](https://github.com/user-attachments/assets/8abaa13e-68fb-43bb-ab09-43cdd592ff3d)
 
+<h1>Hasil eksekusi perintah "php artisan migrate:fresh --seed"</h1>
+
+![image](https://github.com/user-attachments/assets/323d29d7-1520-4859-b349-2b307646ed76)
+
+<h1>Hasil table user pada HeidiSQL</h1>
+
+![image](https://github.com/user-attachments/assets/7b3f493b-db1b-46d2-80aa-8b2eaa7d43e9)
+
+<h1>Hasil table todo pada HeidiSQL</h1>
+
+![image](https://github.com/user-attachments/assets/8aae0c1f-fb57-4aba-b7da-702dcf04aac3)
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
