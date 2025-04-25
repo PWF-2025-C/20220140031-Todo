@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -17,13 +17,13 @@ class UserController extends Controller
                           ->orWhere('email', 'like', '%' . $search . '%');
                 })
                 ->orderBy('name')
-                ->where('id', '!=', '1')
+                ->where('id', '!=', 1)
                 ->paginate(20)
-                ->withQueryString(); // supaya pagination tetap membawa query search
+                ->withQueryString();
         } else {
-            $users = User::where('id', '!=', '1')
-                        ->orderBy('name')
-                        ->paginate(10);
+            $users = User::where('id', '!=', 1)
+                ->orderBy('name')
+                ->paginate(20);
         }
 
         return view('user.index', compact('users'));
