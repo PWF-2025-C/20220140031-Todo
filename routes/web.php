@@ -37,4 +37,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/user/{user}/removeadmin', [UserController::class, 'removeadmin'])->name('user.removeadmin');
 });
 
+// Tambahan dari gambar: middleware khusus admin
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('/user', UserController::class)->except(['show']);
+});
+
 require __DIR__.'/auth.php';
