@@ -12,18 +12,15 @@ class UserController extends Controller
         $search = request('search');
         
         if ($search) {
-            $users = User::where(function ($query) use ($search) {
+            $users = User::with('todos')->where(function ($query) use ($search) {
                 $query->where('name', 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%' . $search . '%');
-            })
-            ->orderBy('name')
-            ->where('id', '!=', 1)
-            ->paginate(20)
-            ->withQueryString();
+            });
+         
         } else {
-            $users = User::where('id', '!=', 1)
-                ->orderBy('id')
-                ->paginate(10);
+            $users = User::with('todos')->where('id', '!=', 1)
+                ->orderBy('name')
+                ->paginate(0);
         }
         
         return view('user.index', compact('users'));

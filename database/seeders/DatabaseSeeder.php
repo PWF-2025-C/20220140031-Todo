@@ -29,8 +29,16 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // Buat 100 user biasa
-        User::factory(10)->create();
+        
+            User::factory()->create([
+                'name' => 'Muh. Syafrizal H.A.',
+                'email' => 'admin@ijal.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('password'),
+                'remember_token' => Str::random(10),
+                'is_admin' => true,
+            ]);
+
 
         // Buat kategori terlebih dahulu
         $categories = Category::factory(10)->create(); // Membuat 10 kategori
