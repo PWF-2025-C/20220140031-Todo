@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
+    
     // User routes
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::patch('/user/{user}/makeadmin', [UserController::class, 'makeadmin'])->name('user.makeadmin');
@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 
 
     
-    Route::middleware(['auth', 'admin'])->group(function(){
+    Route::middleware(['auth', 'verified'])->group(function(){
         Route::resource('user', UserController::class)->except(['show']);
         Route::patch('/user/{user}/makeadmin', [UserController::class, 'makeadmin'])->name('user.makeadmin');
         Route::patch('/user/{user}/removeadmin', [UserController::class, 'removeadmin'])->name('user.removeadmin');
